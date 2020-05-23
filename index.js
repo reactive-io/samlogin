@@ -165,6 +165,11 @@ async function locateDataPath(appName) {
                  ],
   });
 
+  if (process.env.HOME === undefined) {
+    logger.error('No "HOME" env variable could be found!');
+    process.exit();
+  }
+
   const fmtConfigNotFound = 'No configuration file could be found.';
 
   const configPath = await locateConfig(appName, argv)

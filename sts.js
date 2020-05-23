@@ -33,9 +33,8 @@ module.exports = {
 
     try
     {
-      logger.info(sprintf(fmt.ASSUME_ROLE_BEGIN, roleName, roleAccount));
       const response = await STS.assumeRoleWithSAML(params).promise();
-      logger.info(sprintf(fmt.ASSUME_ROLE_SUCCESS, roleName, roleAccount));
+      logger.info(sprintf(fmt.ASSUME_ROLE_SUCCESS, roleAccount, roleName));
 
       return {
                accountNumber,

@@ -32,10 +32,6 @@ describe(
           expect(actual, 'to be', null);
         });
 
-        it('Logs the correct account name', async () => {
-          expect(log.entries('info'), 'to have length', 1);
-          expect(log.entries('info')[0].message, 'to contain', 'Lab');
-        });
         it('Logs the error', async () => {
           expect(log.entries('error'), 'to have length', 1);
           expect(log.entries('error')[0].message, 'to be', 'Fail!');
@@ -65,11 +61,6 @@ describe(
           );
 
           expect(actual, 'to be', null);
-        });
-
-        it('Logs the correct account name', async () => {
-          expect(log.entries('info'), 'to have length', 1);
-          expect(log.entries('info')[0].message, 'to contain', 'Lab');
         });
 
         it('Logs the error', async () => {
@@ -115,9 +106,8 @@ describe(
         });
 
         it('Logs the correct account name', async () => {
-          expect(log.entries('info'), 'to have length', 2);
+          expect(log.entries('info'), 'to have length', 1);
           expect(log.entries('info')[0].message, 'to contain', 'Lab');
-          expect(log.entries('info')[1].message, 'to contain', 'Lab');
         });
       });
 
@@ -151,8 +141,7 @@ describe(
         });
 
         it('Logs the correct account name', async () => {
-          expect(log.entries('info'), 'to have length', 2);
-          expect(log.entries('info')[0].message, 'to contain', mock.accountNumber.sbx);
+          expect(log.entries('info'), 'to have length', 1);
           expect(log.entries('info')[0].message, 'to contain', mock.accountNumber.sbx);
         });
       });
@@ -197,9 +186,8 @@ describe(
         });
 
         it('Logs the correct account name', async () => {
-          expect(log.entries('info'), 'to have length', 2);
+          expect(log.entries('info'), 'to have length', 1);
           expect(log.entries('info')[0].message, 'to contain', 'Lab');
-          expect(log.entries('info')[1].message, 'to contain', 'Lab');
         });
       });
 
@@ -241,9 +229,8 @@ describe(
         });
 
         it('Logs the correct account name', async () => {
-          expect(log.entries('info'), 'to have length', 2);
+          expect(log.entries('info'), 'to have length', 1);
           expect(log.entries('info')[0].message, 'to contain', mock.accountNumber.prod);
-          expect(log.entries('info')[1].message, 'to contain', mock.accountNumber.prod);
         });
       });
     });
