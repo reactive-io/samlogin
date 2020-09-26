@@ -25,6 +25,7 @@ configuration file in the following paths (in order):
 ### Configuration Keys
 * `AuthUrl` - The URL of your Identity Provider which accepts your credentials
 * `AccountAliases` - A sequence of maps from account number to alias
+* `DurationSeconds` - A number of seconds (less then the configured max duration) for the session to be active for
 
 An example configuration:
 ```
@@ -41,6 +42,7 @@ AccountAliases:
     Alias: Prod
   - AccountNumber: '210987654321'
     Alias: Dev
+    DurationSeconds: 28800
 ```
 
 ## Usage

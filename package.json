@@ -18,13 +18,13 @@
     "locate-path": "^3.0.0",
     "minimist": "^1.2.0",
     "printj": "^1.2.1",
-    "puppeteer": "1.6.2",
+    "puppeteer": "^5.3.1",
+    "snyk": "^1.189.0",
     "unexpected": "^10.39.0",
-    "winston": "^3.1.0",
-    "snyk": "^1.189.0"
+    "winston": "^3.1.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^7.5.0",
+    "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^7.5.0",
     "eslint": "^5.5.0",
     "eslint-config-airbnb-base": "^13.1.0",
@@ -33,7 +33,7 @@
     "gulp-eslint": "^5.0.0",
     "gulp-mocha": "^6.0.0",
     "husky": "^1.3.1",
-    "mocha": "^5.2.0"
+    "mocha": "^8.1.3"
   },
   "scripts": {
     "test": "mocha",

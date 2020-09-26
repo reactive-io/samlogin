@@ -11,15 +11,21 @@ module.exports = {
     const accountNumber    = roleMatches[1];
     const roleName         = roleMatches[2];
 
-    const params = {
-                     PrincipalArn: principalMatches[0],
-                     RoleArn:      roleMatches[0],
-                     SAMLAssertion,
-                   };
-
-    // Get the alias of the account if it exists.
-    // Otherwise, use the account number.
+    // Get the alias and duration of the account if it exists.
+    // Otherwise, use the account number and 3600.
     // TODO: It may make sense to extract this into a function.
+
+    const durationSeconds = (
+                              config.AccountAliases
+                              && config.AccountAliases
+                                       .filter(
+                                         x => x.AccountNumber
+                                         === accountNumber,
+                                       )
+                                       .reduce((acc, duration) => duration.DurationSeconds, null)
+                            )
+                            || 3600;
+
     const roleAccount = (
                           config.AccountAliases
                           && config.AccountAliases
@@ -31,6 +37,13 @@ module.exports = {
                         )
                         || accountNumber;
 
+
+    const params = {
+                     PrincipalArn:    principalMatches[0],
+                     RoleArn:         roleMatches[0],
+                     DurationSeconds: durationSeconds,
+                     SAMLAssertion,
+                   };
     try
     {
       const response = await STS.assumeRoleWithSAML(params).promise();

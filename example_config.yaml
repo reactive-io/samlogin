@@ -11,3 +11,4 @@ AccountAliases:
     Alias: Prod
   - AccountNumber: '210987654321'
     Alias: Dev
+    DurationSeconds: 28800
